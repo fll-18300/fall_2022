@@ -22,7 +22,7 @@ class robot_18300:
     def __init__(self):
         
         '''
-        this is the construtor for our robot class. 
+        This is the construtor for our robot class. 
         This function gets called when a robot object is made from the robot class.
         '''
 
