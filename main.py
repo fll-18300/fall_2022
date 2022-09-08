@@ -12,9 +12,9 @@ from pybricks.hubs import EV3Brick
 from robot_18300 import robot_18300
 from menu import menu
 
-##########
+###########
 # Startup
-##########
+###########
 # Instantiate the Robot
 r = robot_18300()
 
