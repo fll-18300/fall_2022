@@ -18,11 +18,9 @@ from menu import menu
 # Instantiate the Robot
 r = robot_18300()
 
-#r.ev3.speaker.say("This is a test")
-
 # Calibrate/Reset the Gyro to prevent drift
 # COMMENT OUT TO SPEED UP TESTING!
-r.calibrate_gyro(4)
+#r.calibrate_gyro(4)
 
 # Program select menu
 menu(r)
