@@ -10,6 +10,7 @@ from robot_18300 import robot_18300
 
 def mission_one(r):
     print("Running Mission 1")
+    #Lydia and Madeleine 
     r.ev3.screen.draw_text(30, 60, "Mission 1")
     r.robot.turn(90)
     wait(1000)
