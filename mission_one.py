@@ -12,6 +12,8 @@ def mission_one(r):
     print("Running Mission 1")
     #Lydia and Madeleine 
     r.ev3.screen.draw_text(30, 60, "Mission 1")
-    r.robot.turn(90)
+    r.robot.straight(600)
+    r.left_attachment_motor.run(200) 
     wait(1000)
+    r.left_attachment_motor.stop()
     r.ev3.screen.clear()

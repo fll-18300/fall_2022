@@ -12,11 +12,37 @@ def mission_three(r):
     #John and Finn mission
     print("Running Mission 3")
     r.ev3.screen.draw_text(30, 60, "Mission 3")
-    #r.robot.straight(600)
-    # r.robot.turn(-90)
-    r.left_attachment_motor.run(200) 
-    r.right_attachment_motor.run(-200) 
-    wait(1000)
+    # making the robot go backwards 
+    r.left_drive_motor = Motor(Port.B,positive_direction=Direction.CLOCKWISE)
+    r.right_drive_motor = Motor(Port.C,positive_direction=Direction.CLOCKWISE)
+    #robot starts against back wall centered on second bold line
+    #make sure robot arm is all the way down
+    r.left_attachment_motor.run(-200) 
+    r.right_attachment_motor.run(200) 
+    wait(500)
     r.left_attachment_motor.stop()
     r.right_attachment_motor.stop() 
+    r.robot.straight(150)
+    r.robot.turn(-45)
+    r.robot.straight(370)
+    r.robot.turn(45)
+    r.robot.straight(240)
+    # at the mission model dump energy units 
+    r.robot.straight(-270)
+    r.robot.turn(-150)
+    r.robot.straight(-50)
+    #at the yellow oil pump and back up a tiny bit
+    r.robot.straight(10)
+    i = 0
+    while (i < 3):
+        r.left_attachment_motor.run(200) 
+        r.right_attachment_motor.run(-200) 
+        wait(500)
+        r.left_attachment_motor.stop()
+        r.right_attachment_motor.stop() 
+        wait(500)
+        i += 1
     r.ev3.screen.clear()
+
+    r.left_drive_motor = Motor(Port.B,positive_direction=Direction.COUNTERCLOCKWISE)
+    r.right_drive_motor = Motor(Port.C,positive_direction=Direction.COUNTERCLOCKWISE)
