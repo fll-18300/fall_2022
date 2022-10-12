@@ -42,6 +42,9 @@ def mission_three(r):
         r.right_attachment_motor.stop() 
         wait(500)
         i += 1
+    r.robot.straight(100)
+    r.robot.turn(-70)
+    r.robot.straight(500)
     r.ev3.screen.clear()
 
     r.left_drive_motor = Motor(Port.B,positive_direction=Direction.COUNTERCLOCKWISE)
