@@ -20,7 +20,7 @@ def mission_one(r):
     # to control how fast the robot moves, how sharp it turns, and how far it will go.
     # Reset the robot distance to zero
     speed = 200
-    turn = 20
+    turn = -10
     distance = 600
     r.robot.reset()
 
@@ -38,8 +38,16 @@ def mission_one(r):
     # END: EXAMPLE FROM THE SPRING
     ############################
 
-    r.robot.straight(600)
     r.left_attachment_motor.run(200) 
     wait(1000)
     r.left_attachment_motor.stop()
+    r.robot.straight(-100)
+    r.left_attachment_motor.run(-200) 
+    wait(250)
+    r.left_attachment_motor.stop() 
+    r.robot.straight(100)
+    r.left_attachment_motor.run(-200) 
+    wait(500)
+    r.left_attachment_motor.stop()
+    r.robot.straight(-600)
     r.ev3.screen.clear()
