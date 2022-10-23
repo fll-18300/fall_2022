@@ -13,10 +13,8 @@ def mission_four(r):
     r.ev3.screen.draw_text(30, 60, "Mission 4")
     wait(1000)
     r.ev3.screen.clear()
-    r.robot.straight(500)
-    r.left_attachment_motor.stop(100)
-    r.right_attachment_motor.stop(100) 
+    r.robot.straight(300) 
     r.robot.straight(-50)
-    r.robot.turn(90)
-    r.robot.striaght(600)
-    r.robot.turn
+    r.left_attachment_motor.run(100)
+    r.right_attachment_motor.run(100)
+
