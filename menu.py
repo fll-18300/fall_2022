@@ -18,7 +18,7 @@ def displayMENU(r):
     r.ev3.screen.draw_text(80, 50, "M5")
 
 # the menu fuction allows you to choose what
-# launch to do
+# launch to do 
 def menu(r):
 
     displayMENU(r)
