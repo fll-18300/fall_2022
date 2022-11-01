@@ -32,7 +32,7 @@ class robot_18300:
             self.right_drive_motor = Motor(Port.C,positive_direction=Direction.COUNTERCLOCKWISE)
             self.right_attachment_motor = Motor(Port.D)
             self.robot = DriveBase(self.left_drive_motor, self.right_drive_motor, wheel_diameter=88, axle_track=115)
-            self.robot.settings(straight_speed=600, straight_acceleration=200, turn_rate=200, turn_acceleration=100)
+            self.robot.settings(straight_speed=600, straight_acceleration=350, turn_rate=200, turn_acceleration=123)
             self.left_color_sensor = ColorSensor(Port.S1)
             self.middle_color_sensor = ColorSensor(Port.S2)
             self.right_color_sensor = ColorSensor(Port.S3)

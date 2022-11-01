@@ -10,8 +10,8 @@ from robot_18300 import robot_18300
 
 def mission_two(r):
     print("Running Mission 2")
-    r.ev3.screen.draw_text(30, 60, "Mission 2")
+    #Lydia and Madeleine
+    #Watch TV
     r.robot.straight(550)
     wait(1000)
-    r.ev3.screen.clear()
     r.robot.straight(-550)

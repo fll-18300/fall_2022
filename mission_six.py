@@ -8,5 +8,5 @@ from pybricks.tools import wait
 from pybricks.hubs import EV3Brick
 from robot_18300 import robot_18300
 
-def mission_four(r):
-    print("Running Mission 4")
+def mission_six(r):
+    print("Running Mission 6")

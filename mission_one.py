@@ -10,8 +10,8 @@ from robot_18300 import robot_18300
 
 def mission_one(r):
     print("Running Mission 1")
-    #Lydia and Madeleine 
-    r.ev3.screen.draw_text(30, 60, "Mission 1")
+    #Lydia and Madeleine
+    #Power Plant
 
     ############################
     # BEGIN: EXAMPLE FROM THE SPRING
@@ -50,4 +50,3 @@ def mission_one(r):
     wait(500)
     r.left_attachment_motor.stop()
     r.robot.straight(-600)
-    r.ev3.screen.clear()
