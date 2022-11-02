@@ -1,7 +1,7 @@
 from pybricks import ev3brick as brick
 from pybricks.parameters import (Port, Stop, Direction, Button, Color,
                                  SoundFile, ImageFile, Align)
-from pybricks.tools import wait
+from pybricks.tools import wait, StopWatch
 from mission_one import mission_one
 from mission_two import mission_two
 from mission_three import mission_three
@@ -15,17 +15,22 @@ def displayMENU(r,menu):
     # clear the display
     # top left center bottom right
     if(menu == 1):
-        r.ev3.screen.draw_text(80, 0, "M1")
-        r.ev3.screen.draw_text(150, 50, "M2")
-        r.ev3.screen.draw_text(80, 100, "M3")
+        r.ev3.screen.draw_text(70, 0, "M1")
+        r.ev3.screen.draw_text(135, 50, "M2")
+        r.ev3.screen.draw_text(70, 100, "M3")
         r.ev3.screen.draw_text(0, 50, "M4")
-        r.ev3.screen.draw_text(60, 50, "SWAP")
+        r.ev3.screen.draw_text(70, 50, "SW")
     else:
-        r.ev3.screen.draw_text(80, 0, "M5")
-        r.ev3.screen.draw_text(150, 50, "M6")
-        r.ev3.screen.draw_text(80, 100, "M7")
+        r.ev3.screen.draw_text(70, 0, "M5")
+        r.ev3.screen.draw_text(135, 50, "M6")
+        r.ev3.screen.draw_text(70, 100, "M7")
         r.ev3.screen.draw_text(0, 50, "M8")
-        r.ev3.screen.draw_text(60, 50, "SWAP")
+        r.ev3.screen.draw_text(70, 50, "SW")
+
+def displayTIME(r,menu):
+    r.ev3.screen.clear()
+    r.ev3.screen.draw_text(125, 100, max(150 - int(r.watch.time()/1000),0))
+    displayMENU(r,menu)
 
 # Cleanup after a mission
 def cleanup(r):
@@ -40,10 +45,18 @@ def cleanup(r):
 # launch to do
 def menu(r):
     menu = 1
-    displayMENU(r,menu)
-
+    update_interval = 1000
+    elapsed_time = -1000
+    launch = 0
+        
     while True:
-        displayMENU(r,menu)
+        if((r.watch.time() - elapsed_time) > update_interval) and (launch == 1):
+            displayTIME(r,menu)
+            print("r.watch.time()=" + str(r.watch.time()) +" Elapsed=" + str(elapsed_time))
+            elapsed_time = r.watch.time()
+        else:
+            displayMENU(r,menu)
+
         btns = r.ev3.buttons.pressed()
         if len(btns) == 1:        
             btn = btns[0]
@@ -51,6 +64,9 @@ def menu(r):
                 if btn == Button.UP:
                     r.ev3.screen.clear()
                     r.ev3.screen.draw_text(30, 60, "Mission 1")
+                    if (launch == 0):
+                        r.watch.reset()
+                        launch = 1
                     mission_one(r)
                     cleanup(r)
                 elif btn == Button.RIGHT:  

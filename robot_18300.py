@@ -6,8 +6,9 @@ from pybricks.ev3devices import *
 from pybricks.parameters import *
 from pybricks.robotics import *
 from pybricks.iodevices import *
-from pybricks.tools import wait
+from pybricks.tools import wait, StopWatch
 from pybricks.hubs import EV3Brick
+from pybricks.media.ev3dev import Font
 
 ################################
 # Define custom_robot Class
@@ -40,7 +41,9 @@ class robot_18300:
             self.ev3.screen.clear()
             self.ev3.light.off()
             self.ev3.light.on(Color.GREEN)
+            self.watch = StopWatch()
             self.ev3.screen.draw_text(10,40,"STARTUP GOOD!")
+            self.ev3.screen.set_font(Font(size=30, bold=True))
             wait(1000)
             self.ev3.screen.clear()    
         except:
