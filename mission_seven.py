@@ -22,6 +22,7 @@ def mission_seven(r):
     r.left_attachment_motor.run(-200) 
     r.right_attachment_motor.run(200) 
     wait(500)
+    # the robot heads to the enegy storage.
     r.left_attachment_motor.stop()
     r.right_attachment_motor.stop() 
     r.robot.straight(150)
@@ -29,11 +30,11 @@ def mission_seven(r):
     r.robot.straight(370)
     r.robot.turn(45)
     r.robot.straight(240)
-    # at the mission model dump energy units 
+    # the robot is at the energy storage and dumps energy units 
     r.robot.straight(-270)
     r.robot.turn(-150)
     r.robot.straight(-50)
-    #at the yellow oil pump and back up a tiny bit
+    # the robot is at the yellow oil pump and backs up a tiny bit
     r.robot.straight(10)
     i = 0
     while (i < 3):
@@ -44,9 +45,16 @@ def mission_seven(r):
         r.right_attachment_motor.stop() 
         wait(500)
         i += 1
+    # the robot lifts up the pump three times and sends the oil down.
     r.robot.straight(100)
     r.robot.turn(-70)
     r.robot.straight(500)
     r.robot.stop()
+    # the robot heads home 
     r.left_drive_motor =  Motor(Port.B,positive_direction=Direction.COUNTERCLOCKWISE)
     r.right_drive_motor = Motor(Port.C,positive_direction=Direction.COUNTERCLOCKWISE)
+    #      _!_
+    #   o=(0_0)=0
+    #   >--(%)--<
+    #     _/ /_
+    #   Bussin Bot
