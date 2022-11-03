@@ -17,6 +17,16 @@ def mission_three(r):
     r.robot.turn(-45)
     r.robot.straight(252)
     r.robot.turn(90)
+
+    # Another way to do this is to drive forward for an amount of time
+    # by using drive(speed,turn)
+    #r.robot.drive(300,0)  
+    #wait(500)
+    #r.robot.stop()
+    # can still backup using distance
+    #r.robot.straight(-53)
+    #wait(500)
+
     r.robot.straight(257)
     r.robot.straight(-53)
     wait(1000)
