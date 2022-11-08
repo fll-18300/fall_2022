@@ -14,24 +14,23 @@ def mission_three(r):
     print("Running Mission 3")
     r.ev3.screen.clear()
     r.robot.straight(370)
-    r.robot.straight(-90)
+    r.robot.straight(-70)
     r.robot.turn(-45)
-    r.robot.straight(252)
+    r.robot.straight(469)
     r.robot.turn(90)
 
     # Another way to do this is to drive forward for an amount of time
     # by using drive(speed,turn)
-    #r.robot.drive(300,0)  
-    #wait(500)
-    #r.robot.stop()
-    # can still backup using distance
-    #r.robot.straight(-53)
-    #wait(500)
+    for x in range(3):        
+        r.robot.drive(200,0)  
+        wait(500)
+        r.robot.stop()
+        wait(100)
+        r.robot.drive(-200,0) 
+        wait(500)
+        r.robot.stop()
+        wait(500)
 
-    r.robot.straight(257)
-    r.robot.straight(-53)
-    wait(1000)
-    r.robot.straight(45)
-    r.robot.straight(-53)
-    wait(1000)  
-    r.robot.straight(53)
+
+
+  
