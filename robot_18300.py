@@ -88,11 +88,54 @@ class robot_18300:
     # Reset The Gyro
     # To Be Worked on
 
-    # Mathemetical Bound Function
-    # To Be Worked on
-
-    # Drive Straight With Gyro
-    # To Be Worked on
  
     # Gyro Tank Turn
     # To Be Worked on
+    
+    # Reset The Gyro
+        def calibrate_gyro(self, port_number):
+            retry = 1
+            while retry == 1:
+                print("calibrating the Gyro")
+                self.ev3.screen.draw_text(0, 0, "Cal'ing The Gyro")
+                self.ev3.screen.draw_text(0, 22, "DO NOT MOVE!")
+                if port_number == 1:
+                    analog_sensor = AnalogSensor(Port.S1)
+                    wait(1000)
+                    gyro_sensor = GyroSensor(Port.S1)
+                    wait(1000)
+                elif port_number == 2:
+                    analog_sensor = AnalogSensor(Port.S2)
+                    wait(1000)
+                    gyro_sensor = GyroSensor(Port.S2)
+                    wait(1000)
+                elif port_number == 3:
+                    analog_sensor = AnalogSensor(Port.S3)
+                    wait(1000)
+                    gyro_sensor = GyroSensor(Port.S3)
+                    wait(1000)
+                else:
+                    port_number == 4:
+                    analog_sensor = AnalogSensor(Port.S4)
+                    wait(1000)
+                    gyro_sensor = GyroSensor(Port.S4)
+                    wait(1000)
+                i = 0
+                while i <= 10:
+                    self.ev3.screen.clear()
+                    self.ev3.screen.draw_text(0, 0, "Cal'ing The Gyro")
+                    self.ev3.screen.draw_text(0, 22, "DO NOT MOVE!")
+                    self.ev3.screen.draw_text(0, 44, "Gyro Value = " + str(gyro_sensor.angle()))
+                    wait(500)
+                    self.ev3.screen.clear()
+                    i = i + 1
+                if gyro_sensor.angle() == 0:
+                    retry = 0
+                    self.ev3.screen.clear()
+                    self.ev3.screen.draw_text(0, 44, "Gyro")
+                    self.ev3.screen.draw_text(0, 44, "Calibration")
+                    self.ev3.screen.draw_text(0, 84, "Complete")
+                    wait(1000)
+                    self.ev3.screen.clear()
+                    
+

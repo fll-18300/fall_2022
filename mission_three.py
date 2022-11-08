@@ -13,7 +13,8 @@ def mission_three(r):
     # Wind Turbine and Toy Factory
     print("Running Mission 3")
     r.ev3.screen.clear()
-    r.robot.straight(500)
+    r.robot.straight(370)
+    r.robot.straight(-90)
     r.robot.turn(-45)
     r.robot.straight(252)
     r.robot.turn(90)

@@ -37,6 +37,16 @@ def mission_eight(r):
     r.right_attachment_motor.stop()
     r.left_attachment_motor.stop()
     r.robot.straight(225)
+    r.right_attachment_motor.run(-200)
+    wait(500)
+    r.right_attachment_motor.stop()
+    r.robot.straight(-100)
+    r.robot.turn(145)
+    r.robot.straight(-280)
+    r.robot.turn(-20)
+    r.robot.straight(-230)
+    r.robot.turn(-160)
+    r.robot.straight(-360)
     # the robot drives foward and pushes the hand into it's possition ending the run.
     #      _!_
     #   o=(0_0)=0
