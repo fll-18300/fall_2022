@@ -152,7 +152,7 @@ class robot_18300:
             while self.gyro_sensor.angle() >= target_angle:
                 # Ramp the speed based on the perecntage of the turn completed.
                 scale = abs((self.gyro_sensor.angle() - starting_angle) / (target_angle - starting_angle))
-                print("COUNTER-CLOCKWISE: starting_angle = " + str(starting_angle) + " target_angle = " + str(target_angle) + " self.gyro_sensor.angle() = " + str(self.gyro_sensor.angle()) + " scale = " + str(scale))
+                #print("COUNTER-CLOCKWISE: starting_angle = " + str(starting_angle) + " target_angle = " + str(target_angle) + " self.gyro_sensor.angle() = " + str(self.gyro_sensor.angle()) + " scale = " + str(scale))
                 unbound_speed = speed * (1 - scale)
                 current_speed = max(unbound_speed, self.min_tank_turn_speed)
                 self.left_drive_motor.run(current_speed)
@@ -162,7 +162,7 @@ class robot_18300:
             while self.gyro_sensor.angle() <= target_angle:
                 # Ramp the speed based on the perecntage of the turn completed.
                 scale = abs((self.gyro_sensor.angle() - starting_angle) / (target_angle - starting_angle))
-                print("CLOCKWISE: starting_angle = " + str(starting_angle) + " target_angle = " + str(target_angle) + " self.gyro_sensor.angle() = " + str(self.gyro_sensor.angle()) + " scale = " + str(scale))
+                #print("CLOCKWISE: starting_angle = " + str(starting_angle) + " target_angle = " + str(target_angle) + " self.gyro_sensor.angle() = " + str(self.gyro_sensor.angle()) + " scale = " + str(scale))
                 unbound_speed = speed * (1 - scale)
                 current_speed = max(unbound_speed, self.min_tank_turn_speed)
                 self.left_drive_motor.run(-current_speed)
