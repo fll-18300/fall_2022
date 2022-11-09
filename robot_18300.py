@@ -89,53 +89,87 @@ class robot_18300:
     # To Be Worked on
 
  
-    # Gyro Tank Turn
-    # To Be Worked on
+
     
     # Reset The Gyro
-        def calibrate_gyro(self, port_number):
-            retry = 1
-            while retry == 1:
-                print("calibrating the Gyro")
-                self.ev3.screen.draw_text(0, 0, "Cal'ing The Gyro")
+    def calibrate_gyro(self, port_number):
+        retry = 1
+        while retry == 1:
+            print("calibrating the Gyro")
+            self.ev3.screen.draw_text(0, 0, "Reset Gyro")
+            self.ev3.screen.draw_text(0, 22, "DO NOT MOVE!")
+            if port_number == 1:
+                analog_sensor = AnalogSensor(Port.S1)
+                wait(1000)
+                gyro_sensor = GyroSensor(Port.S1)
+                wait(1000)
+            elif port_number == 2:
+                analog_sensor = AnalogSensor(Port.S2)
+                wait(1000)
+                gyro_sensor = GyroSensor(Port.S2)
+                wait(1000)
+            elif port_number == 3:
+                analog_sensor = AnalogSensor(Port.S3)
+                wait(1000)
+                gyro_sensor = GyroSensor(Port.S3)
+                wait(1000)
+            else:
+                analog_sensor = AnalogSensor(Port.S4)
+                wait(1000)
+                gyro_sensor = GyroSensor(Port.S4)
+                wait(1000)
+            i = 0
+            while i <= 10:
+                self.ev3.screen.clear()
+                self.ev3.screen.draw_text(0, 0, "RESET GYRO")
                 self.ev3.screen.draw_text(0, 22, "DO NOT MOVE!")
-                if port_number == 1:
-                    analog_sensor = AnalogSensor(Port.S1)
-                    wait(1000)
-                    gyro_sensor = GyroSensor(Port.S1)
-                    wait(1000)
-                elif port_number == 2:
-                    analog_sensor = AnalogSensor(Port.S2)
-                    wait(1000)
-                    gyro_sensor = GyroSensor(Port.S2)
-                    wait(1000)
-                elif port_number == 3:
-                    analog_sensor = AnalogSensor(Port.S3)
-                    wait(1000)
-                    gyro_sensor = GyroSensor(Port.S3)
-                    wait(1000)
-                else:
-                    port_number == 4:
-                    analog_sensor = AnalogSensor(Port.S4)
-                    wait(1000)
-                    gyro_sensor = GyroSensor(Port.S4)
-                    wait(1000)
-                i = 0
-                while i <= 10:
-                    self.ev3.screen.clear()
-                    self.ev3.screen.draw_text(0, 0, "Cal'ing The Gyro")
-                    self.ev3.screen.draw_text(0, 22, "DO NOT MOVE!")
-                    self.ev3.screen.draw_text(0, 44, "Gyro Value = " + str(gyro_sensor.angle()))
-                    wait(500)
-                    self.ev3.screen.clear()
-                    i = i + 1
-                if gyro_sensor.angle() == 0:
-                    retry = 0
-                    self.ev3.screen.clear()
-                    self.ev3.screen.draw_text(0, 44, "Gyro")
-                    self.ev3.screen.draw_text(0, 44, "Calibration")
-                    self.ev3.screen.draw_text(0, 84, "Complete")
-                    wait(1000)
-                    self.ev3.screen.clear()
-                    
+                self.ev3.screen.draw_text(0, 44, "Gyro= " + str(gyro_sensor.angle()))
+                wait(500)
+                self.ev3.screen.clear()
+                i = i + 1
+            if gyro_sensor.angle() == 0:
+                retry = 0
+                self.ev3.screen.clear()
+                self.ev3.screen.draw_text(0, 44, "Gyro")
+                self.ev3.screen.draw_text(0, 44, "Calibration")
+                self.ev3.screen.draw_text(0, 84, "Complete")
+                wait(1000)
+                self.ev3.screen.clear()
+    
+    # gyro tank turn
+    def gyro_tank_turn(self,speed, angle):
+        ''' Tank turn using the gyro
+            angle positive = clockwise
+            angle negative = counter-clockwise
+        '''
+        min_speed = 50
+        #Get the current angle
+        starting_angle = self.gyro_sensor.angle()
+        target_angle = starting_angle - angle
+        # The gyro is mounted upside-down which reverses the gyro measurements 
+        if angle >= 0:
+        #clockwise
+            while self.gyro_sensor.angle() >= target_angle:
+                # Ramp the speed based on the perecntage of the turn completed.
+                scale = abs((self.gyro_sensor.angle() - starting_angle) / (target_angle - starting_angle))
+                print("COUNTER-CLOCKWISE: starting_angle = " + str(starting_angle) + " target_angle = " + str(target_angle) + " self.gyro_sensor.angle() = " + str(self.gyro_sensor.angle()) + " scale = " + str(scale))
+                unbound_speed = speed * (1 - scale)
+                current_speed = max(unbound_speed, self.min_tank_turn_speed)
+                self.left_drive_motor.run(current_speed)
+                self.right_drive_motor.run(-current_speed)
+        else:
+        #counter-clockwise
+            while self.gyro_sensor.angle() <= target_angle:
+                # Ramp the speed based on the perecntage of the turn completed.
+                scale = abs((self.gyro_sensor.angle() - starting_angle) / (target_angle - starting_angle))
+                print("CLOCKWISE: starting_angle = " + str(starting_angle) + " target_angle = " + str(target_angle) + " self.gyro_sensor.angle() = " + str(self.gyro_sensor.angle()) + " scale = " + str(scale))
+                unbound_speed = speed * (1 - scale)
+                current_speed = max(unbound_speed, self.min_tank_turn_speed)
+                self.left_drive_motor.run(-current_speed)
+                self.right_drive_motor.run(current_speed)
+            self.left_drive_motor.brake()
+            self.right_drive_motor.brake()    
+                
+
+                
 

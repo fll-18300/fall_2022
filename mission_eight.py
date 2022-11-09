@@ -45,8 +45,10 @@ def mission_eight(r):
     r.robot.straight(-280)
     r.robot.turn(-20)
     r.robot.straight(-230)
-    r.robot.turn(-160)
-    r.robot.straight(-360)
+    #r.robot.turn(-160)
+    r.robot.stop()
+    r.gyro_tank_turn(300, -160)
+    r.robot.straight(-340)
     # the robot drives foward and pushes the hand into it's possition ending the run.
     #      _!_
     #   o=(0_0)=0
