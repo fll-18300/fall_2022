@@ -14,7 +14,7 @@ def mission_eight(r):
     #Hydro,Innovation Project Circle, Smart Grid
     r.ev3.screen.clear()
     r.robot.straight(310)
-    r.robot.turn(-45)
+    r.robot.turn(-50)
     # the robot goes straight and turns in front of the hydroelectric dam
     r.left_attachment_motor.run(-200)
    # the robot lets the attachment down to get ready to complete the hydroelectrc dam mission.
@@ -36,7 +36,7 @@ def mission_eight(r):
     wait(500)
     r.right_attachment_motor.stop()
     r.left_attachment_motor.stop()
-    r.robot.straight(225)
+    r.robot.straight(235)
     r.right_attachment_motor.run(-200)
     wait(500)
     r.right_attachment_motor.stop()
@@ -47,7 +47,7 @@ def mission_eight(r):
     r.robot.straight(-230)
     #r.robot.turn(-160)
     r.robot.stop()
-    r.gyro_tank_turn(300, -160)
+    r.gyro_tank_turn(300, -140)
     r.robot.straight(-340)
     # the robot drives foward and pushes the hand into it's possition ending the run.
     #      _!_

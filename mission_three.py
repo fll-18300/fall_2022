@@ -23,13 +23,20 @@ def mission_three(r):
     # by using drive(speed,turn)
     for x in range(3):        
         r.robot.drive(200,0)  
-        wait(500)
+        wait(751)
         r.robot.stop()
         wait(100)
         r.robot.drive(-200,0) 
         wait(500)
         r.robot.stop()
         wait(500)
+    r.robot.straight(-111)
+    r.robot.straight(112)
+    r.robot.turn(-90)
+    r.robot.straight(-811)
+
+
+
 
 
 
