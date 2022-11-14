@@ -14,13 +14,13 @@ def mission_eight(r):
     #Hydro,Innovation Project Circle, Smart Grid
     r.ev3.screen.clear()
     r.robot.straight(310)
-    r.robot.turn(-50)
+    r.robot.turn(-45)
     # the robot goes straight and turns in front of the hydroelectric dam
     r.left_attachment_motor.run(-200)
    # the robot lets the attachment down to get ready to complete the hydroelectrc dam mission.
     r.robot.straight(130)
     r.left_attachment_motor.stop()
-    r.robot.turn(-10)
+    r.robot.turn(-15)
     r.left_attachment_motor.run(200)
     # the robot uses the attachment to lift the bar and send the water down.
     wait(500)
@@ -36,12 +36,14 @@ def mission_eight(r):
     wait(500)
     r.right_attachment_motor.stop()
     r.left_attachment_motor.stop()
-    r.robot.straight(235)
+    wait(500)
+    r.robot.straight(205)
     r.right_attachment_motor.run(-200)
     wait(500)
     r.right_attachment_motor.stop()
     r.robot.straight(-100)
-    r.robot.turn(145)
+    #The robot turns toward the solar farm
+    r.robot.turn(150)
     r.robot.straight(-280)
     r.robot.turn(-20)
     r.robot.straight(-230)
@@ -53,7 +55,7 @@ def mission_eight(r):
     #      _!_
     #   o=(0_0)=0
     #   >--(%)--<
-    #     _/ /_
+    #     _| |_
     #   Bussin Bot
 
 

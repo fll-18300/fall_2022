@@ -124,7 +124,7 @@ class robot_18300:
                 self.ev3.screen.draw_text(0, 0, "RESET GYRO")
                 self.ev3.screen.draw_text(0, 22, "DO NOT MOVE!")
                 self.ev3.screen.draw_text(0, 44, "Gyro= " + str(gyro_sensor.angle()))
-                wait(500)
+                wait(100)
                 self.ev3.screen.clear()
                 i = i + 1
             if gyro_sensor.angle() == 0:
@@ -133,7 +133,7 @@ class robot_18300:
                 self.ev3.screen.draw_text(0, 44, "Gyro")
                 self.ev3.screen.draw_text(0, 44, "Calibration")
                 self.ev3.screen.draw_text(0, 84, "Complete")
-                wait(1000)
+                wait(500)
                 self.ev3.screen.clear()
     
     # gyro tank turn

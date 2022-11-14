@@ -12,6 +12,6 @@ def mission_two(r):
     print("Running Mission 2")
     #Lydia and Madeleine
     #Watch TV
-    r.robot.straight(550)
-    wait(1000)
-    r.robot.straight(-550)
+    r.robot.drive(601,0)  
+    wait(5000)
+    r.robot.stop()

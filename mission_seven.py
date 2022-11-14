@@ -33,21 +33,21 @@ def mission_seven(r):
     r.robot.drive(100,0)  
     wait(3000)
     r.robot.stop()
-    # the robot is at the energy storage and dumps energy units 
+    # the robot is at the energy storage and dumps energy units l
     r.robot.straight(-270)
     r.robot.turn(-150)
     r.robot.straight(-50)
     # the robot is at the yellow oil pump and backs up a tiny bit
-    r.robot.straight(20)
+    r.robot.straight(10)
     i = 0
     while (i < 3):
-        r.left_attachment_motor.run(200) 
-        r.right_attachment_motor.run(-200) 
+        r.left_attachment_motor.run(300) 
+        r.right_attachment_motor.run(-300) 
         wait(500)
         r.left_attachment_motor.stop()
         r.right_attachment_motor.stop() 
-        r.left_attachment_motor.run(-200) 
-        r.right_attachment_motor.run(+200)
+        r.left_attachment_motor.run(-300) 
+        r.right_attachment_motor.run(+300)
         wait(500)
         r.left_attachment_motor.stop()
         r.right_attachment_motor.stop()  
