@@ -1,3 +1,7 @@
+################################
+# mission_one.py
+################################
+
 import math
 import time
 from pybricks.ev3devices import *
@@ -13,9 +17,6 @@ def mission_one(r):
     #Lydia and Madeleine
     #Power Plant
 
-    ############################
-    # BEGIN: EXAMPLE FROM THE SPRING
-    ############################
     # Create and define distance, speed, and turn variables
     # to control how fast the robot moves, how sharp it turns, and how far it will go.
     # Reset the robot distance to zero

@@ -1,3 +1,7 @@
+################################
+# mission_two.py
+################################
+
 import math
 import time
 from pybricks.ev3devices import *
@@ -11,7 +15,7 @@ from robot_18300 import robot_18300
 def mission_two(r):
     print("Running Mission 2")
     #Lydia and Madeleine
-    #Watch TV
+    #Drive to Finn and John
     r.robot.drive(601,0)  
     wait(5000)
     r.robot.stop()
