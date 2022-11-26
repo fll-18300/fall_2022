@@ -32,20 +32,24 @@ def mission_eight(r):
     r.robot.turn(25)
     r.robot.straight(500)
     r.robot.turn(-60)
-    r.robot.straight(60)
     # the robot drives into the inivation project module circle
+    r.robot.straight(60)
+    # the robot lets go of the inivation project module into the circle
     r.left_attachment_motor.run(200)
     r.right_attachment_motor.run(200)
-    # the robot lets go of the inivation project module into the circle
     wait(500)
     r.right_attachment_motor.stop()
     r.left_attachment_motor.stop()
     wait(500)
+    # robot drives straight to push the hand
     r.robot.straight(205)
+    # the robot waits and then backs up 
+    wait(500)
+    r.robot.straight(-100)
+    #robot moves the arm back to collect the energy units
     r.right_attachment_motor.run(-200)
     wait(500)
     r.right_attachment_motor.stop()
-    r.robot.straight(-100)
     #The robot turns toward the solar farm
     r.robot.turn(150)
     r.robot.straight(-280)

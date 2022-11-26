@@ -29,7 +29,7 @@ def mission_seven(r):
     # the robot heads to the enegy storage.
     r.left_attachment_motor.stop()
     r.right_attachment_motor.stop() 
-    r.robot.straight(150)
+    r.robot.straight(260)
     r.robot.turn(-45)
     r.robot.straight(370)
     r.robot.turn(45)
