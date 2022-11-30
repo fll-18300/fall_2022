@@ -38,16 +38,18 @@ def mission_one(r):
     ############################
     # END: EXAMPLE FROM THE SPRING
     ############################
-
+    #r.robot.straight(-100)
     r.left_attachment_motor.run(200) 
     wait(1000)
     r.left_attachment_motor.stop()
-    r.robot.straight(-100)
-    r.left_attachment_motor.run(-215) 
-    wait(250)
-    r.left_attachment_motor.stop() 
-    r.robot.straight(150)
-    r.left_attachment_motor.run(-1000) 
-    wait(500)
-    r.left_attachment_motor.stop()
-    r.robot.straight(-600)
+    r.right_attachment_motor.run(200) 
+    wait(1000)
+    r.right_attachment_motor.stop()
+    #r.left_attachment_motor.run(-215) 
+    #  wait(250)
+    #  r.left_attachment_motor.stop() 
+    #   r.robot.straight(150)
+    #   r.left_attachment_motor.run(-1000) 
+    # wait(500)
+    #   r.left_attachment_motor.stop()
+    r.robot.straight(-675)
