@@ -5,7 +5,7 @@
 from pybricks import ev3brick as brick
 from pybricks.parameters import (Port, Stop, Direction, Button, Color,
                                  SoundFile, ImageFile, Align)
-from pybricks.tools import wait, StopWatch
+from pybricks.tools import wait
 from mission_one import mission_one
 from mission_two import mission_two
 from mission_three import mission_three
@@ -16,7 +16,6 @@ from mission_seven import mission_seven
 from mission_eight import mission_eight
 # displays which button runs each launch
 def displayMENU(r,menu):
-    # clear the display
     # top left center bottom right
     if(menu == 1):
         r.ev3.screen.draw_text(70, 0, "M1")
@@ -31,11 +30,6 @@ def displayMENU(r,menu):
         r.ev3.screen.draw_text(0, 50, "M8")
         r.ev3.screen.draw_text(70, 50, "SW")
 
-def displayTIME(r,menu):
-    r.ev3.screen.clear()
-    r.ev3.screen.draw_text(125, 100, max(150 - int(r.watch.time()/1000),0))
-    displayMENU(r,menu)
-
 # Cleanup after a mission
 def cleanup(r):
     # Stop the robot
@@ -49,18 +43,9 @@ def cleanup(r):
 # launch to do
 def menu(r):
     menu = 1
-    update_interval = 1000
-    elapsed_time = -1000
-    launch = 0
         
     while True:
-        if((r.watch.time() - elapsed_time) > update_interval) and (launch == 1):
-            displayTIME(r,menu)
-            print("r.watch.time()=" + str(r.watch.time()) +" Elapsed=" + str(elapsed_time))
-            elapsed_time = r.watch.time()
-        else:
-            displayMENU(r,menu)
-
+        displayMENU(r,menu)
         btns = r.ev3.buttons.pressed()
         if len(btns) == 1:        
             btn = btns[0]
@@ -68,9 +53,6 @@ def menu(r):
                 if btn == Button.UP:
                     r.ev3.screen.clear()
                     r.ev3.screen.draw_text(30, 60, "Mission 1")
-                    if (launch == 0):
-                        r.watch.reset()
-                        launch = 1
                     mission_one(r)
                     cleanup(r)
                 elif btn == Button.RIGHT:  
