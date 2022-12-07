@@ -138,7 +138,7 @@ class robot_18300:
             sys.exit()
         try:
             self.robot = DriveBase(self.left_drive_motor, self.right_drive_motor, wheel_diameter=88, axle_track=115)
-            self.robot.settings(straight_speed=600, straight_acceleration=350, turn_rate=200, turn_acceleration=123)
+            self.robot.settings(straight_speed=600, straight_acceleration=500, turn_rate=200, turn_acceleration=123)
             self.ev3.screen.clear()
             self.ev3.light.off()
             self.ev3.light.on(Color.GREEN)
